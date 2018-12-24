@@ -51,4 +51,14 @@ public class MenuActivity extends BaseActivity {
         startActivity( new Intent(this , InformesActivity.class) );
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+
 }

@@ -335,7 +335,7 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
                 "teléfono alumno : " + etPhoneAlumno.getText().toString() + "\n" +
                 "teléfono padre : " + etPhonePadre.getText().toString();
 
-        sendMessage(datosAlumnoString);
+        sendMessage(datosAlumnoString, etPhoneAlumno.getText().toString());
         altaAlumnoPresenter.setDataAlumno(
                 etNombreAlumno.getText().toString() ,
                 etNombrePadre.getText().toString() ,
@@ -437,7 +437,7 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
         return bitmap;
     }
 
-    private void sendMessage(String msj) {
+    private void sendMessage(String msj, String idNumAlumn) {
         String[] recipients = { RECEPT };
         SendEmailAsyncTask email = new SendEmailAsyncTask();
         email.activity = this;
@@ -448,7 +448,7 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
         email.m.set_subject(AFFAIR_NEW_PAQUETE);
         Bitmap qrImage = null;
         try {
-            qrImage = TextToImageEncode(msj, this);
+            qrImage = TextToImageEncode(idNumAlumn, this);
         } catch (WriterException e) {
             e.printStackTrace();
         }

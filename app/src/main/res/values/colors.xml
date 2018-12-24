@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#7B241C</color>
+    <color name="color_profesor">#e10dcee7</color>
+    <color name="color_alumno">#e1126ddc</color>
+    <color name="color_asesoria_tiempo">#2cb6ea</color>
+    <color name="color_reportes">#f96eb3fc</color>
+    <color name="color_maestro_elementos">#05325c</color>
+    <color name="color_alumnos_elementos">#041263</color>
+
+    <color name="black_qr">#000</color>
+    <color name="white_qr">#fff</color>
+
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Materia : "
+                    android:textAllCaps="false"
+                    android:textColor="#161515"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/et_ajustes_materias_nombre"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Imagen : "
+                    android:textAllCaps="false"
+                    android:textColor="#161515"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btn_ajustes_materias_seleccionar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/btn"
+                    android:text="@string/seleccionar"
+                    android:textColor="#fff" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_ajustes_materia_imagen"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/libros" />
+
+            <Button
+                android:id="@+id/btn_update_materia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:text="@string/Registrar"
+                android:layout_margin="20dp"
+                android:background="@drawable/btn" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">GestorAsesorias</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Materias">Materias</string>
+    <string name="precios">Precios</string>
+    <string name="seleccionar">Seleccionar</string>
+    <string name="Materias_modificar">Modificar materia</string>
+    <string name="Materias_alta">Alta de materia</string>
+    <string name="Primaria">Primaria : $</string>
+    <string name="Secundaria">Secundaria : $</string>
+    <string name="Preparatoria">Preparatoria : $</string>
+    <string name="Universidad">Universidad : $</string>
+    <string name="Registrar">Registrar</string>
+    <string name="iniciarDatos">iniciar o reiniciar datos</string>
+
+    <string-array name="horas">
+
+
+        <item>horas</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+
+    </string-array>
+
+    <string-array name="materia">
+        <item>Materia</item>
+        <item>Literatura</item>
+        <item>Historia Universal</item>
+        <item>Geografía</item>
+        <item>Español</item>
+        <item>Historia de México</item>
+        <item>Biología</item>
+        <item>Química</item>
+        <item>Matemáticas</item>
+        <item>Física</item>
+        <item>Comprensión Lectora</item>
+        <item>Historia Universal</item>
+        <item>TICS</item>
+        <item>Derecho</item>
+        <item>Economía</item>
+        <item>Administración</item>
+        <item>Inglés</item>
+        <item>Psicología</item>
+        <item>Estadistica</item>
+        <item>Pensamiento Analítico</item>
+    </string-array>
+
+</resources>

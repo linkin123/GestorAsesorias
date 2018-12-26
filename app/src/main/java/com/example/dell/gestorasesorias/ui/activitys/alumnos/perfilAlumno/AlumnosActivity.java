@@ -25,6 +25,9 @@ public class AlumnosActivity extends BaseActivity {
     @OnClick(R.id.btn_ui_alumnos_lista)
     public void listaAlumnos(){ startActivity(new Intent(this , ListaAlumnosActivity.class));}
 
+    @OnClick(R.id.btn_ui_alumnos_qr)
+    public void scannerQRClases(){ startActivity(new Intent(this , ScannerQRClasesActivity.class));}
+
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this , MenuActivity.class ) );

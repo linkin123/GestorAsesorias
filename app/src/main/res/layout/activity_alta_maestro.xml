@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="@color/color_profesor"
-    android:baselineAligned="true"
-    android:orientation="vertical">
+    android:background="@color/color_profesor">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,8 +15,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-
-            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_cv_contact_maestro"
                 android:layout_width="137dp"
                 android:layout_height="137dp"
@@ -36,7 +31,6 @@
                 android:layout_height="80dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_camara" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,7 +75,6 @@
                             android:id="@+id/et_alta_maestro_domicilio"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content" />
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -118,11 +111,9 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
 
-
                 </LinearLayout>
 
             </LinearLayout>
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -181,7 +172,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-
                 android:layout_marginTop="25dp"
                 android:background="@drawable/btn"
                 android:text="Registrar"
@@ -192,4 +182,4 @@
 
     </ScrollView>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

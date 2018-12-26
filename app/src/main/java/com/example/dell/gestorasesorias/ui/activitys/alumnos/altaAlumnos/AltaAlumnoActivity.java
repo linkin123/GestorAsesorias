@@ -26,6 +26,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -85,7 +88,7 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
     private static final String  RECEPT="linkinluisave@gmail.com";
 
     private String mPath;
-
+    private Boolean opencameraBandera = false;
     @BindView(R.id.ib_camera_alumno)
     ImageButton ibAlumno;
 
@@ -103,6 +106,13 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
 
     @BindView(R.id.profile_cv_contact_alumno)
     CircleImageView civAlumno;
+
+
+    @BindView(R.id.layout_alta_alumno)
+    LinearLayout layoutAltaAlumno;
+
+    @BindView(R.id.layout_progressbar)
+    ProgressBar layoutProgressBar;
 
     Bitmap bitmap;
 
@@ -190,6 +200,7 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
                     }
                 }
         );
+
         return alertDialog;
     }
 
@@ -269,6 +280,7 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
                             });
                     bitmap = BitmapFactory.decodeFile(mPath);
                     Glide.with(this).load(mPath).into(civAlumno);
+                    opencameraBandera = true;
                     break;
                 case SELECT_PICTURE:
                     Uri imageUri = data.getData();
@@ -282,6 +294,7 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
 
                     bitmap = BitmapFactory.decodeFile(imagePath, options);
                     Glide.with(this).load(imageUri).into(civAlumno);
+                    opencameraBandera = true;
                     break;
 
             }
@@ -327,20 +340,54 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
         builder.show();
     }
 
+    private String strTxv(TextView t){
+        return t.getText().toString();
+    }
     @OnClick(R.id.btn_registrar_alumno)
     public  void registrarAlumno(){
-        String datosAlumnoString =
-                "Alumno : " + etNombreAlumno.getText().toString() + "\n" +
-                "Padre: " + etNombrePadre.getText().toString() + "\n" +
-                "teléfono alumno : " + etPhoneAlumno.getText().toString() + "\n" +
-                "teléfono padre : " + etPhonePadre.getText().toString();
 
-        sendMessage(datosAlumnoString, etPhoneAlumno.getText().toString());
-        altaAlumnoPresenter.setDataAlumno(
-                etNombreAlumno.getText().toString() ,
-                etNombrePadre.getText().toString() ,
-                etPhoneAlumno.getText().toString() ,
-                etPhonePadre.getText().toString() , bitmap );
+            if(validateData(strTxv(etNombreAlumno) , strTxv(etNombrePadre) , strTxv(etPhoneAlumno) , strTxv(etPhonePadre))){
+                layoutAltaAlumno.setVisibility(View.GONE);
+                layoutProgressBar.setVisibility(View.VISIBLE);
+                String datosAlumnoString =
+                        "Alumno : " + etNombreAlumno.getText().toString() + "\n" +
+                                "Padre: " + etNombrePadre.getText().toString() + "\n" +
+                                "teléfono alumno : " + etPhoneAlumno.getText().toString() + "\n" +
+                                "teléfono padre : " + etPhonePadre.getText().toString();
+
+                sendMessage(datosAlumnoString, etPhoneAlumno.getText().toString());
+                altaAlumnoPresenter.setDataAlumno(
+                        etNombreAlumno.getText().toString() ,
+                        etNombrePadre.getText().toString() ,
+                        etPhoneAlumno.getText().toString() ,
+                        etPhonePadre.getText().toString() , bitmap );
+            }
+
+    }
+
+    private Boolean validateData(String alumno, String padre, String phoneAlumno, String phonePadre) {
+        if(alumno.isEmpty() ){
+            Toast.makeText(this, "nombre de alumno vacio", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(padre.isEmpty() ){
+            Toast.makeText(this, "nombre de padre vacio", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(phoneAlumno.isEmpty() ){
+            Toast.makeText(this, "telefono de alumno vacio", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(phonePadre.isEmpty() ){
+            Toast.makeText(this, "telefono de padre vacio", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opencameraBandera==false){
+            Toast.makeText(this, "Foto de alumno es necesaria", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+
     }
 
 
@@ -376,6 +423,9 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
 
     @Override
     public void onDataSuccessDB() {
+        layoutAltaAlumno.setVisibility(View.VISIBLE);
+        layoutProgressBar.setVisibility(View.GONE);
+
         Toast.makeText(getApplicationContext() , "Registro Exitoso", Toast.LENGTH_LONG).show();
         startActivity( new Intent(this , AlumnosActivity.class));
     }

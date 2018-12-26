@@ -8,82 +8,88 @@
     android:background="@color/color_asesoria_tiempo"
     tools:context=".ui.activitys.asesoriasTiempo.AsesoriaPorTiempoActivity">
 
-    <TextView
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:text="asesorias por tiempo en construccion"
-        android:gravity="center"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:text="asesorias por tiempo"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <android.support.v7.widget.AppCompatImageView
-        android:src="@drawable/ic_reloj"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatImageView
+                android:src="@drawable/ic_reloj"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <TextView
-        android:text="Nombre del alumno"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:text="Nombre del alumno"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/alumn_name_time"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <EditText
+                android:inputType="textPersonName"
+                android:id="@+id/alumn_name_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <TextView
-        android:text="Profesor"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:text="Profesor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/profesor_name_time"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <EditText
+                android:inputType="textPersonName"
+                android:id="@+id/profesor_name_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btn_alumn_time_exit"
-        android:layout_marginLeft="20dp"
-        android:layout_margin="10dp"
-        android:textColor="#FFFFFF"
-        android:textAllCaps="false"
-        android:text="hora de salida"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btn_alumn_time_exit"
+                android:layout_marginLeft="20dp"
+                android:layout_margin="10dp"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:text="hora de salida"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/et_alumn_time_hour_exit_mensaje"
-        android:layout_width="match_parent"
-        android:text="hora de salida"
-        android:gravity="center"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/et_alumn_time_hour_exit_mensaje"
+                android:layout_width="match_parent"
+                android:text="hora de salida"
+                android:gravity="center"
+                android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/et_alumn_time_hour_exit"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/et_alumn_time_hour_exit"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btn_alumn_time_start"
-        android:layout_marginLeft="20dp"
-        android:layout_margin="10dp"
-        android:text="Comenzar"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btn_alumn_time_start"
+                android:layout_marginLeft="20dp"
+                android:layout_margin="10dp"
+                android:text="Comenzar"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

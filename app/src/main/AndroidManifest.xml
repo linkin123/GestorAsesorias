@@ -8,12 +8,14 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
     <protected-broadcast android:name="android.intent.action.MEDIA_MOUNTED" />
+
 
     <application
         android:allowBackup="true"
@@ -25,17 +27,9 @@
         <activity android:name=".ui.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <receiver android:name=".MyReceiver">
-            <intent-filter>
-                <action android:name="es.carlos_garcia.tutoriales.android.alarmmanager" />
-            </intent-filter>
-        </receiver>
-
         <activity android:name=".ui.activitys.ajustes.altaMaterias.AjustesMateriasActivity" />
         <activity android:name=".ui.activitys.maestros.perfilMaestro.MaestrosActivity" />
         <activity android:name=".ui.activitys.maestros.perfilMaestro.PerfilMaestroActivity" />
@@ -46,9 +40,8 @@
         <activity android:name=".ui.activitys.alumnos.perfilAlumno.AlumnosActivity" />
         <activity android:name=".ui.activitys.alumnos.perfilAlumno.PerfilAlumnoActivity" />
         <activity android:name=".ui.activitys.asesoriasTiempo.AsesoriaPorTiempoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.SET_ALARM" />
-            </intent-filter>
+
+
         </activity>
         <activity android:name=".ui.activitys.alumnos.paqueteAlumnos.CompraPaqueteActivity" />
         <activity android:name=".ui.activitys.ajustes.AjustesActivity" />
@@ -58,6 +51,8 @@
         <activity android:name=".ui.activitys.ajustes.listaMaterias.AjustesListaMateriasActivity" />
         <activity android:name=".ui.activitys.alumnos.perfilAlumno.ScannerQRClasesActivity" />
         <activity android:name=".ui.activitys.alumnos.perfilAlumno.ClasesDialog"></activity>
+        <receiver android:name=".ui.activitys.asesoriasTiempo.MyBroadcastReceiver" >
+        </receiver>
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StatFs;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -338,6 +339,17 @@ public class AltaAlumnoActivity extends BaseActivity implements AltaAlumnoPresen
         });
 
         builder.show();
+    }
+    //comprueba espacio en memoria externa
+    public static float megabytesAvailableSDCard() {
+        StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
+        return ((long)stat.getBlockSize() * (long)stat.getAvailableBlocks()) / (1024.f * 1024.f);
+    }
+
+    //comprueban espacio en memoria interna
+    public static float megabytesAvailableInternalStorage(Context ctx) {
+        StatFs stat = new StatFs(ctx.getFilesDir().getAbsolutePath());
+        return ((long)stat.getBlockSize() * (long)stat.getAvailableBlocks()) / (1024.f * 1024.f);
     }
 
     private String strTxv(TextView t){

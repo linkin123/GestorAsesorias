@@ -44,8 +44,9 @@ public class BaseHelper  extends SQLiteOpenHelper {
     /******************tabla alumnos en clase***********************************/
     String tablaAlumnosEnClase = "CREATE TABLE " +
             "ALUMNOSCLASE(ID INTEGER PRIMARY KEY , " +
-            "NOMBRE TEXT, " +
-            "PROFESPR TEXT )";
+            "ALUMNO TEXT, " +
+            "MAESTRO TEXT, " +
+            "MATERIA TEXT )";
 
 
     public BaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

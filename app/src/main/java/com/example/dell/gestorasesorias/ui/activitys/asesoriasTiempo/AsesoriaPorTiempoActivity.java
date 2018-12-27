@@ -19,7 +19,9 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class AsesoriaPorTiempoActivity extends BaseActivity {
+public class AsesoriaPorTiempoActivity extends BaseActivity implements  AsesoriasPorTiempoPresenter.View{
+
+    private AsesoriasPorTiempoPresenter asesoriasPorTiempoPresenter;
 
     private static final int ALARM_REQUEST_CODE  = 1;
     private int mHora;
@@ -92,7 +94,10 @@ public class AsesoriaPorTiempoActivity extends BaseActivity {
         Toast.makeText(getApplicationContext(), "Hora de salida : " + tvTimeExit.getText().toString() ,
                 Toast.LENGTH_LONG).show();
         //guardar en bdd
-        startActivity(new Intent(this , AsesoriaPorTiempoActivity.class));
+        asesoriasPorTiempoPresenter.setDataAlumnInClass(
+                etAlumnoNameTime.getText().toString().trim(),
+                etProfesorNameTime.getText().toString().trim(),"materia def"
+                );
     }
 
     @Override
@@ -101,5 +106,31 @@ public class AsesoriaPorTiempoActivity extends BaseActivity {
     }
 
 
+    @Override
+    public void onErrorNameAlumn() {
+        Toast.makeText(getApplicationContext() , "debe ingresar un alumno", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onErrorNameMaster() {
+        Toast.makeText(getApplicationContext() , "debe ingresar un maestro", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onErrorMateria() {
+        Toast.makeText(getApplicationContext() , "debe seleccionar la materia", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onErrorDB() {
+        Toast.makeText(getApplicationContext() , "error en la base de datos !", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onDataSuccessDB() {
+        Toast.makeText(getApplicationContext() , "Registro exitoso !", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(this , AsesoriaPorTiempoActivity.class));
+
+    }
 }
 

@@ -17,7 +17,7 @@ import java.io.ByteArrayOutputStream;
  * Created by Dell on 04/06/2018.
  */
 
-public class AltaMaestroPresenter extends AppCompatActivity {
+public class AltaMaestroPresenter  {
 
     private Context context;
     private View view;

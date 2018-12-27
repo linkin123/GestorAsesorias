@@ -1,6 +1,12 @@
 package com.example.dell.gestorasesorias.ui.activitys.alumnos.perfilAlumno;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +44,10 @@ public class PerfilAlumnoActivity extends BaseActivity implements PerfilAlumnoPr
     private PerfilAlumnoPresenter perfilAlumnoPresenter;
 
     public static final String ID = "0";
+    final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 0;
+    private String number;
+    private String numberPadre;
+
     int id;
     @Override
     protected void initView() {
@@ -47,8 +57,47 @@ public class PerfilAlumnoActivity extends BaseActivity implements PerfilAlumnoPr
         if (intent.hasExtra(ID)) {
             id = intent.getIntExtra(ID, 0);
         }
+        tvAlumnoTelefono.setOnClickListener((view) -> {
+            number = tvAlumnoTelefono.getText().toString();
+        });
+
+        tvPadreTelefono.setOnClickListener((view) -> {
+            numberPadre = tvPadreTelefono.getText().toString();
+        });
+    }
+
+    public void validateCallPermission(){
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.CALL_PHONE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                        Manifest.permission.CALL_PHONE)) {
+
+                } else {
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.CALL_PHONE},
+                            MY_PERMISSIONS_REQUEST_CALL_PHONE);
+                }
+            } else {
+                callPhone();
+            }
+        } else {
+            callPhone();
+        }
+    }
+
+    public void callPhone() {
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + number.replaceAll("-", ""))));
 
     }
+
+
 
     @Override
     protected int getLayoutResId() {
@@ -73,15 +122,14 @@ public class PerfilAlumnoActivity extends BaseActivity implements PerfilAlumnoPr
     }
 
     @Override
-    public void onDataSendSucces(AlumnosResponse alumnosResponse) {
-/*
-        alumnosResponse.
-        civAlumno.setImageBitmap(alumnosResponse.getBitmap());
-        tvNombreAlumno.setText(alumnosResponse.getNombre());
-        tvNombrePadre.setText(alumnosResponse.getNombrePadre());
-        tvAlumnoTelefono.setText(alumnosResponse.getTelefono());
-        tvPadreTelefono.setText(alumnosResponse.get);
-*/    }
+    public void onDataSendSucces(Alumno alumno) {
+
+        civAlumno.setImageBitmap(alumno.getBitmap());
+        tvNombreAlumno.setText(alumno.getAlumno());
+        tvNombrePadre.setText(alumno.getPadreName());
+        tvAlumnoTelefono.setText(alumno.getAlumnoPhone());
+        tvPadreTelefono.setText(alumno.getPadrePhone());
+    }
 
 
 

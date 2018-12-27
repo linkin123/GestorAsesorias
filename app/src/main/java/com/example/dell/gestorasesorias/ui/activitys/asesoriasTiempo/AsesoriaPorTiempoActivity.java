@@ -89,9 +89,9 @@ public class AsesoriaPorTiempoActivity extends BaseActivity {
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
                 + (duracionMiliseg * 1000), pendingIntent);
-        Toast.makeText(getApplicationContext(), "Alarma puesta en " + duracionMiliseg + " segundos",
+        Toast.makeText(getApplicationContext(), "Hora de salida : " + tvTimeExit.getText().toString() ,
                 Toast.LENGTH_LONG).show();
-
+        //guardar en bdd
         startActivity(new Intent(this , AsesoriaPorTiempoActivity.class));
     }
 

@@ -20,7 +20,7 @@ import java.io.ByteArrayInputStream;
  * Created by Dell on 12/06/2018.
  */
 
-public class PerfilAlumnoPresenter implements AlumnosCallback{
+public class PerfilAlumnoPresenter /*implements AlumnosCallback*/{
 
     private Context context;
     private View view;
@@ -46,13 +46,13 @@ public class PerfilAlumnoPresenter implements AlumnosCallback{
                 view.onNoDataDB();
             }
             db.close();
-//            view.onDataSendSucces(new Alumno(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getString(4), bitmap ));
+            view.onDataSendSucces(new Alumno(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getString(4), bitmap ));
 
         } catch (Exception e) {
             view.onErrorDB();
         }
     }
-
+/*
     @Override
     public void onApiResponseError(Error error) {
         System.out.println("ocurrio un error en la respuesta del servicio ");
@@ -60,13 +60,13 @@ public class PerfilAlumnoPresenter implements AlumnosCallback{
 
     @Override
     public void onAlumnosResponse(AlumnosResponse alumnosResponse) {
-        view.onDataSendSucces(alumnosResponse);
+        view.onDataSendSucces(alumno);
     }
-
+*/
     public interface View extends BasePresenter.View {
         void onErrorDB();
 
-        void onDataSendSucces(AlumnosResponse alumnosResponse);
+        void onDataSendSucces(Alumno alumno);
 
         void onNoDataDB();
     }

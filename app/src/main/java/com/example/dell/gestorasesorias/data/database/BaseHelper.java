@@ -41,6 +41,13 @@ public class BaseHelper  extends SQLiteOpenHelper {
             "NOMBRE TEXT, " +
             "IMG BLOB )";
 
+    /******************tabla alumnos en clase***********************************/
+    String tablaAlumnosEnClase = "CREATE TABLE " +
+            "ALUMNOSCLASE(ID INTEGER PRIMARY KEY , " +
+            "NOMBRE TEXT, " +
+            "PROFESPR TEXT )";
+
+
     public BaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -53,6 +60,7 @@ public class BaseHelper  extends SQLiteOpenHelper {
         db.execSQL(tablaAlumnos);
         db.execSQL(tablaPrecios);
         db.execSQL(tablaMaterias);
+        db.execSQL(tablaAlumnosEnClase);
     }
 
     @Override
@@ -70,6 +78,9 @@ public class BaseHelper  extends SQLiteOpenHelper {
 //      eliminamos y creamos tabla materias
         db.execSQL("drop table materias");
         db.execSQL(tablaMaterias);
+//      eliminamos y creamos tabla materias
+        db.execSQL("drop table alumnosenclase");
+        db.execSQL(tablaAlumnosEnClase);
 
     }
 }

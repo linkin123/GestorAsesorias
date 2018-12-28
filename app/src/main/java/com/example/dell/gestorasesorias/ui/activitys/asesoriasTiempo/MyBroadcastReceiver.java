@@ -44,5 +44,14 @@ public class MyBroadcastReceiver extends android.content.BroadcastReceiver {
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(2000);
 
+
+        //cachar id del alumno lanzar a la actividad del perfil con boton de finalizar clase
+
+        Intent i = new Intent(context.getApplicationContext(), MenuActivity.class);
+        i.putExtra("id", idVenta);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(i);
+
+
     }
 }

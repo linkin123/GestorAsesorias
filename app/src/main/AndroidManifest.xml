@@ -47,7 +47,7 @@
         <activity android:name=".ui.activitys.ajustes.AjustesActivity" />
         <activity android:name=".ui.activitys.ajustes.precios.PreciosActivity" />
         <activity android:name=".ui.activitys.reportes.ReportesActivity" />
-        <activity android:name=".ui.activitys.informes.InformesActivity" />
+        <activity android:name=".ui.activitys.informes.AlumnosInClassActivity" />
         <activity android:name=".ui.activitys.ajustes.listaMaterias.AjustesListaMateriasActivity" />
         <activity android:name=".ui.activitys.alumnos.perfilAlumno.ScannerQRClasesActivity" />
         <activity android:name=".ui.activitys.alumnos.perfilAlumno.ClasesDialog"></activity>

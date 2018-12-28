@@ -46,6 +46,8 @@ public class BaseHelper  extends SQLiteOpenHelper {
             "ALUMNOSCLASE(ID INTEGER PRIMARY KEY , " +
             "ALUMNO TEXT, " +
             "MAESTRO TEXT, " +
+            "HORAENTRADA TEXT, " +
+            "HORASALIDA TEXT, " +
             "MATERIA TEXT )";
 
 

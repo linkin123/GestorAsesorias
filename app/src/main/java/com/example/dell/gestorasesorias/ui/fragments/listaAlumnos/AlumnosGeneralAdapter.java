@@ -47,8 +47,7 @@ public class AlumnosGeneralAdapter extends  RecyclerView.Adapter<AlumnosGeneralA
 
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_alumnos, parent, false);
-        return new ItemViewHolder(v);
+        return new ItemViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_alumnos, parent, false));
     }
 
     @Override

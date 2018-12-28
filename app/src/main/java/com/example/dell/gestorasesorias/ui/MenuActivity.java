@@ -7,7 +7,7 @@ import com.example.dell.gestorasesorias.base.BaseActivity;
 import com.example.dell.gestorasesorias.ui.activitys.alumnos.perfilAlumno.AlumnosActivity;
 import com.example.dell.gestorasesorias.ui.activitys.asesoriasTiempo.AsesoriaPorTiempoActivity;
 import com.example.dell.gestorasesorias.ui.activitys.ajustes.AjustesActivity;
-import com.example.dell.gestorasesorias.ui.activitys.informes.InformesActivity;
+import com.example.dell.gestorasesorias.ui.activitys.informes.AlumnosInClassActivity;
 import com.example.dell.gestorasesorias.ui.activitys.maestros.perfilMaestro.MaestrosActivity;
 import com.example.dell.gestorasesorias.ui.activitys.reportes.ReportesActivity;
 
@@ -48,7 +48,7 @@ public class MenuActivity extends BaseActivity {
 
     @OnClick(R.id.ib_informes)
     public void onKlickInformes(){
-        startActivity( new Intent(this , InformesActivity.class) );
+        startActivity( new Intent(this , AlumnosInClassActivity.class) );
     }
 
     @Override

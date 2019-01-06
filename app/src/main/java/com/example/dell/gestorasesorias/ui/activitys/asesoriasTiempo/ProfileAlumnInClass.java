@@ -13,8 +13,7 @@ public class ProfileAlumnInClass extends BaseActivity {
 
     private String ID_ALUMNO = "numSocio";
 
-    @BindView(R.id.tv_id_alumn)
-    private TextView tvIdAlumn;
+
 
     @Override
     protected int getLayoutResId() {
@@ -24,12 +23,12 @@ public class ProfileAlumnInClass extends BaseActivity {
     protected void initView() {
         super.initView();
         ID_ALUMNO = getIntent().getStringExtra("numSocio");
-        setData();
+//        setData();
     }
-    private void setData() {
-        tvIdAlumn.setText(ID_ALUMNO);
+/*    private void setData() {
+        tvIdAlumn2.setText(ID_ALUMNO);
     }
-
+*/
     protected void initPresenter() {
 
     }

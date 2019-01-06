@@ -19,7 +19,7 @@ public class AsesoriasPorTiempoPresenter {
         this.view = view;
     }
 
-    public void setDataAlumnInClass(String alumno , String maestro , String materia){
+    public void setDataAlumnInClass(String alumno , String maestro , String entrada , String salida, String materia){
         boolean valid = true;
         if (alumno.isEmpty()) {
             if (view != null) {
@@ -41,20 +41,23 @@ public class AsesoriasPorTiempoPresenter {
         }
 
         if (valid == true) {
-            guardarDB( alumno, maestro , materia);
+            guardarDB( alumno, maestro , entrada, salida, materia);
         }
     }
 
-    private void guardarDB(String alumno, String maestro, String materia) {
+    private void guardarDB(String alumno, String maestro, String entrada, String salida, String materia) {
         BaseHelper helper = new BaseHelper(context, "Demo", null, 1);
         SQLiteDatabase db = helper.getWritableDatabase();
         try {
-            String sql = "INSERT INTO ALUMNOSCLASE ( alumno , maestro , materia ) VALUES (? , ? , ?) ";
+            String sql = "INSERT INTO ALUMNOSCLASE ( alumno , maestro , entrada, salida, materia) VALUES (? , ? , ?, ? , ?) ";
             SQLiteStatement insert = db.compileStatement(sql);
             insert.clearBindings();
             insert.bindString(1, alumno);
             insert.bindString(2, maestro);
-            insert.bindString(3, materia);
+            insert.bindString(3, entrada);
+            insert.bindString(4, salida);
+            insert.bindString(5, materia);
+
             insert.executeInsert();
             db.close();
             view.onDataSuccessDB();

@@ -96,7 +96,10 @@ public class AsesoriaPorTiempoActivity extends BaseActivity implements  Asesoria
         //guardar en bdd
         asesoriasPorTiempoPresenter.setDataAlumnInClass(
                 etAlumnoNameTime.getText().toString().trim(),
+                "hora def",
+                tvTimeExit.getText().toString(),
                 etProfesorNameTime.getText().toString().trim(),"materia def"
+
                 );
     }
 

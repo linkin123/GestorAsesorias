@@ -16,7 +16,6 @@
 
     <protected-broadcast android:name="android.intent.action.MEDIA_MOUNTED" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,6 +26,7 @@
         <activity android:name=".ui.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -39,10 +39,7 @@
         <activity android:name=".ui.activitys.maestros.listaMaestros.ListaMaestrosActivity" />
         <activity android:name=".ui.activitys.alumnos.perfilAlumno.AlumnosActivity" />
         <activity android:name=".ui.activitys.alumnos.perfilAlumno.PerfilAlumnoActivity" />
-        <activity android:name=".ui.activitys.asesoriasTiempo.AsesoriaPorTiempoActivity">
-
-
-        </activity>
+        <activity android:name=".ui.activitys.asesoriasTiempo.AsesoriaPorTiempoActivity"></activity>
         <activity android:name=".ui.activitys.alumnos.paqueteAlumnos.CompraPaqueteActivity" />
         <activity android:name=".ui.activitys.ajustes.AjustesActivity" />
         <activity android:name=".ui.activitys.ajustes.precios.PreciosActivity" />
@@ -50,9 +47,11 @@
         <activity android:name=".ui.activitys.informes.AlumnosInClassActivity" />
         <activity android:name=".ui.activitys.ajustes.listaMaterias.AjustesListaMateriasActivity" />
         <activity android:name=".ui.activitys.alumnos.perfilAlumno.ScannerQRClasesActivity" />
-        <activity android:name=".ui.activitys.alumnos.perfilAlumno.ClasesDialog"></activity>
-        <receiver android:name=".ui.activitys.asesoriasTiempo.MyBroadcastReceiver" >
-        </receiver>
+        <activity android:name=".ui.activitys.alumnos.perfilAlumno.ClasesDialog" />
+
+        <receiver android:name=".ui.activitys.asesoriasTiempo.MyBroadcastReceiver"></receiver>
+
+        <activity android:name=".ui.activitys.alumnos.listaAlumnos.SelectionMasterActivity"></activity>
     </application>
 
 </manifest>

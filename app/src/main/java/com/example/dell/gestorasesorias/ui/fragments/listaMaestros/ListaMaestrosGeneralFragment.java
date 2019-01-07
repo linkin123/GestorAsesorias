@@ -27,7 +27,7 @@ public class ListaMaestrosGeneralFragment extends BaseFragment implements Maestr
 
     private MaestrosGeneralPresenter maestrosGeneralPresenter;
     private MaestrosGeneralAdapter maestrosGeneralAdapter;
-
+    private int idAlumno = -1;
     public static ListaMaestrosGeneralFragment newInstance() {
         return new ListaMaestrosGeneralFragment();
     }
@@ -41,6 +41,10 @@ public class ListaMaestrosGeneralFragment extends BaseFragment implements Maestr
     @Override
     protected void initFragment(@NonNull View view) {
         super.initFragment(view);
+
+        idAlumno = getArguments().getInt("idAlumno");
+
+//        Toast.makeText(getContext(), data, Toast.LENGTH_SHORT).show();
 
         maestrosGeneralAdapter = new MaestrosGeneralAdapter(getContext(), new ArrayList<Maestro>(), this , this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -77,9 +81,15 @@ public class ListaMaestrosGeneralFragment extends BaseFragment implements Maestr
 
     @Override
     public void onItemClick(Maestro maestroItem) {
-        Intent i = new Intent(getContext(), PerfilMaestroActivity.class);
-        i.putExtra(PerfilMaestroActivity.ID, maestroItem.getId());
-        startActivity(i);
+
+        if(idAlumno==0){
+            Intent i = new Intent(getContext(), PerfilMaestroActivity.class);
+            i.putExtra(PerfilMaestroActivity.ID, maestroItem.getId());
+            startActivity(i);
+        }else if(idAlumno > 0){
+            //alta en BD alumnos en clase
+        }
+
     }
 
 

@@ -15,6 +15,7 @@ import com.example.dell.gestorasesorias.R;
 import com.example.dell.gestorasesorias.base.BaseActivity;
 import com.example.dell.gestorasesorias.data.models.Alumno;
 import com.example.dell.gestorasesorias.data.models.AlumnosResponse;
+import com.example.dell.gestorasesorias.ui.activitys.alumnos.listaAlumnos.SelectionMasterActivity;
 import com.example.dell.gestorasesorias.ui.activitys.alumnos.paqueteAlumnos.CompraPaqueteActivity;
 
 import butterknife.BindView;
@@ -137,4 +138,13 @@ public class PerfilAlumnoActivity extends BaseActivity implements PerfilAlumnoPr
     public void onNoDataDB() {
         Toast.makeText(getApplicationContext(), "No existe este registro en la base de datos", Toast.LENGTH_LONG).show();
     }
+
+    @OnClick(R.id.btn_alumno_entrada)
+    public void SelectionMaster(){
+
+        Intent iAlumn = new Intent(this, SelectionMasterActivity.class);
+        iAlumn.putExtra(SelectionMasterActivity.ID_ALUMNO, id);
+        startActivity(iAlumn);
+    }
+
 }
